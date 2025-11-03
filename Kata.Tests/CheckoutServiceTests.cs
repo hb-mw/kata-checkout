@@ -4,19 +4,28 @@ namespace Kata.Tests;
 
 public class Tests
 {
-    private ICheckout checkoutService;
+    private ICheckoutService _checkoutService;
     
     [SetUp]
     public void Setup()
     {
-        checkoutService = new Checkout.Checkout();
+        _checkoutService = new CheckoutService();
     }
 
     [Test]
     public void Empty_Basket_Should_Return_Zero_Total_Price()
     {
-        var totalPrice = checkoutService.GetTotalPrice();
+        var totalPrice = _checkoutService.GetTotalPrice();
 
         Assert.That(totalPrice, Is.EqualTo(0));
+    }
+    
+    [Test]
+    public void SingleItem_A_ShouldReturn50()
+    {
+        _checkoutService.Scan("A");
+        var totalPrice = _checkoutService.GetTotalPrice();
+        
+        Assert.That(totalPrice, Is.EqualTo(50));
     }
 }

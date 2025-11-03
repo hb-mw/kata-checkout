@@ -1,6 +1,6 @@
 namespace Kata.Checkout;
 
-public class Checkout : ICheckout
+public class CheckoutService : ICheckoutService
 {
     public void Scan(string item)
     {

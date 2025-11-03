@@ -1,6 +1,6 @@
 namespace Kata.Checkout;
 
-public interface ICheckout
+public interface ICheckoutService
 {
     /// <summary>
     /// Scans an item and adds it to the checkout process.
