@@ -8,7 +8,7 @@ public static class PricingHelper
         new()
         {
             { "A", new MultiBuyOfferRule(50,3,130) },
-            { "B", new UnitPriceRule(40) },
+            { "B", new MultiBuyOfferRule(40,2,50) },
             { "C", new UnitPriceRule(30) },
             { "D", new UnitPriceRule(20) },
             
