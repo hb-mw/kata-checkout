@@ -9,7 +9,7 @@ public static class PricingHelper
         {
             { "A", new MultiBuyOfferRule(50,3,130) },
             { "B", new MultiBuyOfferRule(40,2,50) },
-            { "C", new UnitPriceRule(30) },
+            { "C", new BuyOneGetOneFreeRule(30) },
             { "D", new UnitPriceRule(20) },
             
         };
