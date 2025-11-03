@@ -13,8 +13,10 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void Empty_Basket_Should_Return_Zero_Total_Price()
     {
-        Assert.Pass();
+        var totalPrice = checkoutService.GetTotalPrice();
+
+        Assert.That(totalPrice, Is.EqualTo(0));
     }
 }
