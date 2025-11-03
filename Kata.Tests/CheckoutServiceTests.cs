@@ -1,15 +1,18 @@
 ﻿using Kata.Checkout;
+using Kata.Checkout.helpers;
 
 namespace Kata.Tests;
 
 public class Tests
 {
     private ICheckoutService _checkoutService;
+    private PricingCatalogue _pricingCatalogue;
     
     [SetUp]
     public void Setup()
     {
-        _checkoutService = new CheckoutService();
+        _pricingCatalogue = DefaultPricingCatalogue.Create();
+        _checkoutService = new CheckoutService(_pricingCatalogue);
     }
 
     [Test]
@@ -77,6 +80,20 @@ public class Tests
         var totalPrice = _checkoutService.GetTotalPrice();
         
         Assert.That(totalPrice, Is.EqualTo(180));
+    }
+    
+    [Test]
+    public void Scanning_AAAAAA_ShouldReturn260()
+    {
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        var totalPrice = _checkoutService.GetTotalPrice();
+        
+        Assert.That(totalPrice, Is.EqualTo(260));
     }
     
     [Test]
