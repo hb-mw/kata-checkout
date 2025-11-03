@@ -2,13 +2,14 @@ namespace Kata.Checkout;
 
 public class CheckoutService : ICheckoutService
 {
+    private List<string> _items = [];
     public void Scan(string item)
     {
-        Console.WriteLine("scanned: " + item);
+        _items.Add(item);
     }
 
     public int GetTotalPrice()
     {
-        return 0;
+        return _items.Where(item => item == "A").Sum(item => 50);
     }
 }
