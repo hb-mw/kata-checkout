@@ -39,4 +39,12 @@ public class Tests
         Assert.That(totalPrice, Is.EqualTo(90));
     }
     
+    [Test]
+    public void Single_Unknown_Item_ShouldReturnZero()
+    {
+        _checkoutService.Scan("z");
+        var totalPrice = _checkoutService.GetTotalPrice();
+        
+        Assert.That(totalPrice, Is.EqualTo(0));
+    }
 }
