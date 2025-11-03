@@ -4,9 +4,12 @@ PROBLEMS:
  -First we need to calcualte all items total . regardless of what the item is. (OK)
    -Sub: we need to define a helper pricing catalog? simulate fetching prices from db etc... (OK)
 
-- Now we need to be able to hanlde pricing rules. such as 3 for x , 2 for x , buy one get one free etc.. (WIP)
+- Now we need to be able to hanlde pricing rules. such as 3 for x , 2 for x , buy one get one free etc.. (OK)
     - what really could be helpfull here is the Strategy pattern , checkout servicesa will not know or thing about the pricing , so we  implement pricing strategy/rules . i'll start by defining pricing rules service whcih will take care of all the calculations , the simple form first to calculate the prices correctly for all basket items. (OK)
 
     - Sub : we need to keep a tracking of items and their counts in the basket so we will have 'A:2' instead of 'AA' , where 2 is the counts of scanned 'A', etc... (OK)
-    - Now its a matter of defining our pricing rules, will write tests and follow a RED-GREEN Steps, to achieve the correct rules logic .
+    - Now its a matter of defining our pricing rules, will write tests and follow a RED-GREEN Steps, to achieve the correct rules logic . (OK).
+    - Just to demonstrate how to add new rules will add a Buy one get one free rule.
+    - Refactroing!! ,tests structure/scenarios proper setup.. , create a pricing catalog factory? to be consumed from tests and checkout servcie.
+    - Xml Comments.
 
