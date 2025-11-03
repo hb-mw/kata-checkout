@@ -1,3 +1,5 @@
+using Kata.Checkout.helpers;
+
 namespace Kata.Checkout;
 
 public class CheckoutService : ICheckoutService
@@ -10,6 +12,6 @@ public class CheckoutService : ICheckoutService
 
     public int GetTotalPrice()
     {
-        return _items.Where(item => item == "A").Sum(item => 50);
+        return _items.Sum(item => PricingHelper.GetPrice(item));
     }
 }
