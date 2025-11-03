@@ -55,4 +55,15 @@ public class Tests
         
         Assert.That(totalPrice, Is.EqualTo(100));
     }
+    
+    [Test]
+    public void Scanning_AAA_ShouldReturn100()
+    {
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        var totalPrice = _checkoutService.GetTotalPrice();
+        
+        Assert.That(totalPrice, Is.EqualTo(130));
+    }
 }
