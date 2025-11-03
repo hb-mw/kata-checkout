@@ -57,7 +57,7 @@ public class Tests
     }
     
     [Test]
-    public void Scanning_AAA_ShouldReturn100()
+    public void Scanning_AAA_ShouldReturn130()
     {
         _checkoutService.Scan("A");
         _checkoutService.Scan("A");

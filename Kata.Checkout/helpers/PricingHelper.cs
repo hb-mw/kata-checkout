@@ -7,7 +7,7 @@ public static class PricingHelper
     private static readonly Dictionary<string, IPricingRule> Prices =
         new()
         {
-            { "A", new UnitPriceRule(50) },
+            { "A", new MultiBuyOfferRule(50,3,130) },
             { "B", new UnitPriceRule(40) },
             { "C", new UnitPriceRule(30) },
             { "D", new UnitPriceRule(20) },
