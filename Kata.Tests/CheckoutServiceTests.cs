@@ -66,4 +66,16 @@ public class Tests
         
         Assert.That(totalPrice, Is.EqualTo(130));
     }
+    
+    [Test]
+    public void Scanning_AAAA_ShouldReturn180()
+    {
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
+        var totalPrice = _checkoutService.GetTotalPrice();
+        
+        Assert.That(totalPrice, Is.EqualTo(180));
+    }
 }
