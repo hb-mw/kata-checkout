@@ -1,0 +1,5 @@
+Now we do have 2 green tests .
+-We have 0 if basket empty and 50 if item A is there.
+PROBLEMS:
+ -First we need to calcualte all items total . regardless of what the item is.
+   -Sub: we need to define a helper pricing catalog? simulate fetching prices from db etc...
