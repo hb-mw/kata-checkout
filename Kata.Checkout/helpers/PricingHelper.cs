@@ -15,6 +15,6 @@ public static class PricingHelper
     
     public static int GetPrice(string item)
     {
-        return Prices[item];
+        return Prices.GetValueOrDefault(item, 0);
     }
 }
