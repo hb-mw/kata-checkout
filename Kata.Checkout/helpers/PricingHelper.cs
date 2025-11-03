@@ -1,20 +1,25 @@
+using Kata.Checkout.PricingRules;
+
 namespace Kata.Checkout.helpers;
 
 public static class PricingHelper
 {
-    private static readonly Dictionary<string, int> Prices =
+    private static readonly Dictionary<string, IPricingRule> Prices =
         new()
         {
-            { "A", 50 },
-            { "B", 40 },
-            { "C", 30 },
-            { "D", 10 },
+            { "A", new UnitPriceRule(50) },
+            { "B", new UnitPriceRule(40) },
+            { "C", new UnitPriceRule(30) },
+            { "D", new UnitPriceRule(20) },
             
         };
     
     
-    public static int GetPrice(string item)
+    public static IPricingRule GetRule(string sku)
     {
-        return Prices.GetValueOrDefault(item, 0);
+        if (!Prices.TryGetValue(sku, out var rule))
+            throw new KeyNotFoundException($"Unknown SKU: {sku}");
+
+        return rule;
     }
 }

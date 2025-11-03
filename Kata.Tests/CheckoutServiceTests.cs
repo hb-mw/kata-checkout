@@ -40,11 +40,19 @@ public class Tests
     }
     
     [Test]
-    public void Single_Unknown_Item_ShouldReturnZero()
+    public void Single_Unknown_Item_Should_Throw_KeyNotFoundException()
     {
         _checkoutService.Scan("z");
+        Assert.Throws<KeyNotFoundException>(() => _checkoutService.GetTotalPrice());
+    }
+
+    [Test]
+    public void Scanning_AA_ShouldReturn100()
+    {
+        _checkoutService.Scan("A");
+        _checkoutService.Scan("A");
         var totalPrice = _checkoutService.GetTotalPrice();
         
-        Assert.That(totalPrice, Is.EqualTo(0));
+        Assert.That(totalPrice, Is.EqualTo(100));
     }
 }
